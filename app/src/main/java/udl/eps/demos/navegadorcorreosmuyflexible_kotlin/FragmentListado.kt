@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import udl.eps.demos.navegadorcorreosmuyflexible_kotlin.databinding.FragmentListadoBinding
+import udl.eps.demos.navegadorcorreosmuyflexible_kotlin.databinding.ListitemCorreoBinding
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,27 +46,29 @@ class FragmentListado : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentListadoBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_listado, container, false)
+    ): View {
+        binding = FragmentListadoBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, state: Bundle?) {
         super.onViewCreated(view, state)
-        lstListado = requireView().findViewById(R.id.LstListado)
-        lstListado.setAdapter(AdaptadorCorreos(this, datos))
-        lstListado.setOnItemClickListener(OnItemClickListener { list, view, pos, id ->
+        lstListado = binding.LstListado
+        lstListado.adapter = AdaptadorCorreos(this, datos)
+        lstListado.setOnItemClickListener { list, view, pos, id ->
             if (listener != null) {
                 listener!!.onCorreoSeleccionado(
                     lstListado.getAdapter().getItem(pos) as Correo
                 )
             }
-        })
+        }
     }
 
 
@@ -81,20 +87,18 @@ class FragmentListado : Fragment() {
         var context: Activity?
         var datos: Array<Correo> = array
 
+        @SuppressLint("ViewHolder")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            val inflater = context!!.layoutInflater
-            @SuppressLint("InflateParams", "ViewHolder") val item =
-                inflater.inflate(R.layout.listitem_correo, null)
-            val lblDe = item.findViewById<TextView>(R.id.LblDe)
-            lblDe.setText(datos[position].de)
-            val lblAsunto = item.findViewById<TextView>(R.id.LblAsunto)
-            lblAsunto.setText(datos[position].asunto)
-            return item
+            val inflater = context!!.layoutInflater // LayoutInflater.from(context)
+            val binding = ListitemCorreoBinding.inflate(inflater, parent, false)
+            val lblDe = binding.LblDe
+            lblDe.text = datos[position].de
+            val lblAsunto = binding.LblAsunto
+            lblAsunto.text = datos[position].asunto
+            return binding.root
         }
-
         init {
             context = fragmentListado.activity
-            //datos = array
         }
     }
 
@@ -105,5 +109,4 @@ class FragmentListado : Fragment() {
     fun setCorreosListener(listener: CorreosListener?) {
         this.listener = listener
     }
-
  }
