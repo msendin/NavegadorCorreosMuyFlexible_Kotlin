@@ -89,7 +89,7 @@ class FragmentListado : Fragment() {
 
         @SuppressLint("ViewHolder")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            val inflater = context!!.layoutInflater
+            val inflater = LayoutInflater.from(context)
             val binding = ListitemCorreoBinding.inflate(inflater, parent, false)
             val lblDe = binding.LblDe
             lblDe.text = datos[position].de
