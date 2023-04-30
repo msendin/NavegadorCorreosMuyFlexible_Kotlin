@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import udl.eps.demos.navegadorcorreosmuyflexible_kotlin.databinding.FragmentDetalleBinding
-import udl.eps.demos.navegadorcorreosmuyflexible_kotlin.databinding.FragmentListadoBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +28,7 @@ class FragmentDetalle : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDetalleBinding.inflate(inflater, container, false)
         return binding.root

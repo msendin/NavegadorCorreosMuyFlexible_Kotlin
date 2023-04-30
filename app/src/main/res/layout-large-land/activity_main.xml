@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:orientation="horizontal" >
 
-    <fragment class="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentListado"
+    <androidx.fragment.app.FragmentContainerView
+        android:name="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentListado"
         android:layout_height="match_parent"
         android:layout_width="0px"
         android:layout_weight="30"
         android:id="@+id/FrgListado"   />
 
-    <fragment class="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentDetalle"
+    <androidx.fragment.app.FragmentContainerView
+        android:name="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentDetalle"
         android:layout_height="match_parent"
         android:layout_width="0px"
         android:layout_weight="70"

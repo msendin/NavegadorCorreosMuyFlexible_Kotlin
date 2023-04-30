@@ -21,7 +21,7 @@ class MainActivity : FragmentActivity(), FragmentListado.CorreosListener {
 
     override fun onCorreoSeleccionado(c: Correo) {
         val fgdet = supportFragmentManager.findFragmentById(R.id.FrgDetalle) as FragmentDetalle?
-        val hayDetalle = fgdet != null && fgdet.isInLayout
+        val hayDetalle = (fgdet != null)
         if (hayDetalle) {
             fgdet!!.mostrarDetalle(c.texto)
         } else {
