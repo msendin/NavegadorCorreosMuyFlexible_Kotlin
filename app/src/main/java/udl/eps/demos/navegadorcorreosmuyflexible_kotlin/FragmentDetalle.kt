@@ -29,7 +29,6 @@ class FragmentDetalle : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDetalleBinding.inflate(inflater, container, false)
         return binding.root
     }
