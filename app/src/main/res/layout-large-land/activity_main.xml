@@ -3,19 +3,18 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="horizontal" >
-
     <androidx.fragment.app.FragmentContainerView
         android:name="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentListado"
         android:layout_height="match_parent"
         android:layout_width="0px"
         android:layout_weight="30"
         android:id="@+id/FrgListado"   />
-
     <androidx.fragment.app.FragmentContainerView
         android:name="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentDetalle"
         android:layout_height="match_parent"
         android:layout_width="0px"
         android:layout_weight="70"
         android:id="@+id/FrgDetalle"    />
-
 </LinearLayout>
+
+

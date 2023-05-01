@@ -3,11 +3,10 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="horizontal" >
-
     <androidx.fragment.app.FragmentContainerView
       android:name="udl.eps.demos.navegadorcorreosmuyflexible_kotlin.FragmentListado"
       android:layout_height="match_parent"
       android:layout_width="match_parent"
       android:id="@+id/FrgListado" />
-
 </LinearLayout>
+

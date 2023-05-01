@@ -1,7 +1,6 @@
 package udl.eps.demos.navegadorcorreosmuyflexible_kotlin
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 
 class DetalleActivity : FragmentActivity() {
@@ -10,8 +9,8 @@ class DetalleActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle)
-        val detalle: FragmentDetalle? = supportFragmentManager
+        val detalle = supportFragmentManager
             .findFragmentById(R.id.FrgDetalle) as FragmentDetalle?
-        if (detalle != null) detalle.mostrarDetalle(intent.getStringExtra(EXTRA_TEXTO))
+        detalle?.mostrarDetalle(intent.getStringExtra(EXTRA_TEXTO))
     }
 }
